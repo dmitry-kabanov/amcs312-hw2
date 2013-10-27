@@ -11,7 +11,7 @@ LIB_PATH=-L${_CUDA_ROOT_}/lib64
 # libraries to link against
 LIB= -lcudart -lcublas
 
-CU_SRC=matrixvecmul_1.cu matrixmul_2.cu matrixmul_3.cu matrixmul_4.cu
+CU_SRC=matrixvecmul_1.cu matrixmul_2.cu matrixvecmul_3.cu matrixmul_4.cu
 C_SRC=test_matrixvecmul.c
 
 CU_OBJ=$(CU_SRC:.cu=.cu_o)
