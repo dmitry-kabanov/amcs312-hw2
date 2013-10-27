@@ -1,0 +1,21 @@
+execution time: 0.700724 s
+MFLOPS/sec: 11738.650927
+==1184== Profiling application: ./sgemv1 4096
+
+Accelerator Kernel Timing data
+/home/siddiqs/HPC2/openacc/sgemv1.c
+  main
+    53: region entered 1 time
+        time(us): total=700,702 init=634,627 region=66,075
+                  kernels=672 data=64,743
+        w/o init: total=66,075 max=66,075 min=66,075 avg=66,075
+        56: kernel launched 1 times
+            grid: [4096]  block: [128]
+            time(us): total=672 max=672 min=672 avg=672
+==1184== Profiling result:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 75.64%  35.611ms         3  11.870ms  5.2800us  35.600ms  [CUDA memcpy DtoH]
+ 23.05%  10.850ms        66  164.39us  5.1520us  169.89us  [CUDA memcpy HtoD]
+  1.31%  616.42us         1  616.42us  616.42us  616.42us  main_56_gpu
+[siddiqs@c4hdn openacc]$
+

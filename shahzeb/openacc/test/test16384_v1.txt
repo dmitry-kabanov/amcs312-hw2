@@ -1,0 +1,21 @@
+==1105== NVPROF is profiling process 1105, command: ./sgemv1 16384
+execution time: 1.596558 s
+MFLOPS/sec: 20860.420299
+==1105==
+Accelerator Kernel Timing data
+Profiling application: ./sgemv1 16384
+/home/siddiqs/HPC2/openacc/sgemv1.c
+  main
+    53: region entered 1 time
+        time(us): total=1,596,540 init=635,233 region=961,307
+                  kernels=8,961 data=951,667
+        w/o init: total=961,307 max=961,307 min=961,307 avg=961,307
+        56: kernel launched 1 times
+            grid: [16384]  block: [128]
+            time(us): total=8,961 max=8,961 min=8,961 avg=8,961
+==1105== Profiling result:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 75.11%  549.94ms         3  183.31ms  12.512us  549.92ms  [CUDA memcpy DtoH]
+ 23.68%  173.36ms      1026  168.97us  12.992us  170.30us  [CUDA memcpy HtoD]
+  1.22%  8.9066ms         1  8.9066ms  8.9066ms  8.9066ms  main_56_gpu
+

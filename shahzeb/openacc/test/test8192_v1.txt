@@ -1,0 +1,25 @@
+[siddiqs@c4hdn openacc]$ nvprof ./sgemv1 8192
+ I offload on device number:-1
+allocating...
+initializing...
+==1207== NVPROF is profiling process 1207, command: ./sgemv1 8192
+execution time: 0.832183 s
+MFLOPS/sec: 19849.261194
+==1207== Profiling application: ./sgemv1 8192
+
+Accelerator Kernel Timing data
+/home/siddiqs/HPC2/openacc/sgemv1.c
+  main
+    53: region entered 1 time
+        time(us): total=832,165 init=578,087 region=254,078
+                  kernels=2,367 data=251,051
+        w/o init: total=254,078 max=254,078 min=254,078 avg=254,078
+        56: kernel launched 1 times
+            grid: [8192]  block: [128]
+            time(us): total=2,367 max=2,367 min=2,367 avg=2,367
+==1207== Profiling result:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 76.28%  146.86ms         3  48.953ms  7.6800us  146.84ms  [CUDA memcpy DtoH]
+ 22.52%  43.347ms       258  168.01us  7.6160us  169.89us  [CUDA memcpy HtoD]
+  1.20%  2.3111ms         1  2.3111ms  2.3111ms  2.3111ms  main_56_gpu
+

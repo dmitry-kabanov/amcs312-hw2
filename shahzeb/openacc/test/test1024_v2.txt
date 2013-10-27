@@ -1,0 +1,18 @@
+==32155== Profiling application: ./sgemv2 1024
+
+Accelerator Kernel Timing data
+/home/siddiqs/HPC2/openacc/sgemv2.c
+  main
+    70: region entered 1 time
+        time(us): total=636,939 init=630,749 region=6,190
+                  kernels=343 data=4,593
+        w/o init: total=6,190 max=6,190 min=6,190 avg=6,190
+        72: kernel launched 1 times
+            grid: [376]  block: [128]
+            time(us): total=343 max=343 min=343 avg=343
+==32155== Profiling result:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 91.66%  698.59us         6  116.43us  3.3280us  172.96us  [CUDA memcpy HtoD]
+  7.78%  59.296us         1  59.296us  59.296us  59.296us  main_72_gpu
+  0.56%  4.2560us         1  4.2560us  4.2560us  4.2560us  [CUDA memcpy DtoH]
+
