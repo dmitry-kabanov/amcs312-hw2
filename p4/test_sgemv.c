@@ -122,7 +122,7 @@ int main(int argc, char** argv)
 		fp = fopen (file_name,"w");
 	}
 	
-    printf("------------------- Testing SSYMV ----------------\n");
+    printf("------------------- Testing SGEMV ----------------\n");
     printf("  Matrix         CUDA        KBLAS          Max.  \n");
     printf(" Dimension     (Gflop/s)   (Gflop/s)       Error  \n");
     printf("-----------   ----------   ----------   ----------\n");
