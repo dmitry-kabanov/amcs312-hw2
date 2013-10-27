@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
 	
 	// computing flops for measuring performance
 	float dimf = (float)dim;
-	float million_flops = 2 * 1e-6 * dimf * dimf * dimf;	// 2 * n ^ 3
+	float million_flops = 2 * 1e-6 * dimf * dimf;	// 2 * n ^ 2
 	
 	// create cuda events
 	cudaEventCreate(&start);
@@ -171,19 +171,6 @@ int main(int argc, char* argv[])
 			cudaEventElapsedTime(&gpu_time, start, stop);
 			float gpu_perf = million_flops / gpu_time; 
 			printf("%-9.2f     ", gpu_perf);
-			
-			// should read result back
-			//}
-			//else if(j == 5) 	// mkl gemm
-			//{
-			//	struct timeval start, end;
-			//	gettimeofday(&start, NULL);
-			//	cblas_sgemm(CblasColMajor, CblasNoTrans, CblasNoTrans, dim, dim, dim, 1.0, ha, dim, hx, dim, 0.0, hy, dim);
-  			//	gettimeofday(&end, NULL);
-  			//	cpu_time = (end.tv_sec - start.tv_sec) * 1000;
-  			//	cpu_time += (end.tv_usec - start.tv_usec) * 1e-3;
-  			//	float cpu_perf = million_flops / cpu_time; 
-			//	printf("%-9.2f     ", cpu_perf);
 		}
 		printf("\n");
 	}

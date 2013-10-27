@@ -5,18 +5,8 @@
 __global__
 void matrixmul_1(float* A, float* x, float* y, int dim, int block_size)
 {
-	// constant block/thread indices
-	const int bx = blockIdx.x;
-	const int by = blockIdx.y;
-	const int tx = threadIdx.x;
-	const int ty = threadIdx.y;
+	const int row = blockIdx.y * block_size + threadIdx.y;
 	
-	// each thread is responsible for one element in the output matrix
-	// (row, col) indices of the output element 
-	const int row = by * block_size + ty;
-	const int col = bx * block_size + tx;
-	
-	// compute product
 	float sum = 0.0;
 	for(int k = 0; k < dim; k++)
 		sum += A[row * dim + k] * x[k];
