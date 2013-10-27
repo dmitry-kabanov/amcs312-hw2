@@ -1,8 +1,11 @@
+#include <stdio.h>
+
 int main() {
     cudaDeviceProp prop;
     cudaGetDeviceProperties(&prop, 0);
 
-    printf("Clock rate: %d\n", prop.clockRate);
+    printf("Memory clock rate: %d kHz\n", prop.memoryClockRate);
+    printf("Memory bus width: %d bits\n", prop.memoryBusWidth);
 
     return 0;
 }
